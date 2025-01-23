@@ -1,0 +1,90 @@
+.button {
+  display: inline-flex;
+  height: 2.5rem;
+  padding: var(--spacing-2) var(--spacing-4);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2);
+  border: 1px solid transparent;
+  border-radius: var(--rounded-md);
+
+  cursor: pointer;
+
+  font-size: var(--font-sm);
+  color: var(--primary-foreground);
+  line-height: var(--leading-5);
+  font-weight: 500;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Default */
+.default {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.default:hover {
+  background-color: var(--primary-hover);
+}
+
+.default:active {
+  background-color: var(--primary-active);
+}
+
+
+/* Secondary */
+
+.secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.secondary:hover {
+  background-color: var(--secondary-hover);
+}
+
+.secondary:active {
+  background-color: var(--secondary-active);
+}
+
+/* Outline */
+
+.outline {
+  border-color: var(--border);
+  background-color: var(--background);
+  color: var(--secondary-foreground);
+}
+
+.outline:hover {
+  background-color: var(--background-hover);
+}
+
+.outline:active {
+  background-color: var(--background-active);
+}
+
+/* Sizes */
+
+.sm {
+  height: 2.25rem;
+  padding: var(--spacing-2) var(--spacing-3);
+}
+
+.lg {
+  height: 2.75rem;
+  padding: var(--spacing-2) var(--spacing-8);
+  width: 150px;
+  font-size: 18px;
+}
+
+.icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0;
+}

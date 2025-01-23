@@ -1,0 +1,18 @@
+/* App.module.css */
+.container {
+  display: flex; /* Utilizamos Flexbox */
+  min-height: 100vh; /* Altura mínima de toda la ventana */
+  width: 1920px;
+  margin: auto;
+}
+
+.navbar {
+  width: 250px; /* Ancho fijo para la barra de navegación */
+  height: 100%; /* Aseguramos que ocupe toda la altura */
+}
+
+.main {
+  flex: 1; /* Ocupa todo el espacio restante */
+  padding: 16px; /* Espaciado interno */
+  background-color: #fff; /* Fondo del contenido */
+}
