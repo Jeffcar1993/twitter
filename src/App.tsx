@@ -4,6 +4,7 @@ import Navbar from "./Componentes/Navbar/Navbar"
 import Inicio from "./Componentes/Inicio/Inicio"
 import Login from "./Componentes/Login/Login";
 import { useAuth } from "./Componentes/Context/AuthContext";
+import Crearcuenta from "./Componentes/Crearcuenta";
 
 const App = () => {
   const { isAuthenticated } = useAuth();
@@ -25,6 +26,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={ isAuthenticated ? <Inicio /> : <Navigate to="/login" replace />} />
             <Route path="/login" element={ !isAuthenticated ? <Login /> : <Navigate to="/" replace />} />
+            <Route path="/crearcuenta" element={ <Crearcuenta />} />
           </Routes>
         </div>
 

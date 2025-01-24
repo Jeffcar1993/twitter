@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Boton from "../Boton";
 import styles from "./Login.module.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface LoginFormInputs {
   email: string;
@@ -12,6 +13,7 @@ const Login = () => {
   
   const { register, handleSubmit, reset } = useForm<LoginFormInputs>();
   const [errorMessage, setErrorMessage] = useState("")
+  const navigate = useNavigate();
 
   const enviar: SubmitHandler<LoginFormInputs> = async (data) => {
     try {
@@ -23,6 +25,10 @@ const Login = () => {
     }
     
   }
+
+  const crearUsuario = () => {
+    navigate('/crearcuenta');
+};
 
   return (
     <div className={styles.container}>
@@ -56,9 +62,11 @@ const Login = () => {
                 {...register("password", { required: "El password es obligatorio" })}
             />
 
-            {errorMessage && <p className="error">{errorMessage}</p>}
+            { errorMessage && <p className="error">{errorMessage}</p> }
 
-            <Boton size="lg" type="submit">Ingresar</Boton>
+            <Boton type="submit">Ingresar</Boton>
+
+            <Boton type="button" onClick={crearUsuario}>Crear Cuenta</Boton>
 
         </form>
 
