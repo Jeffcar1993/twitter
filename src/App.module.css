@@ -2,8 +2,8 @@
 .container {
   display: flex; /* Utilizamos Flexbox */
   min-height: 100vh; /* Altura mínima de toda la ventana */
-  width: 1920px;
   margin: auto;
+  width: 1280;
 }
 
 .navbar {
