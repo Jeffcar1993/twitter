@@ -9,7 +9,7 @@ React.ButtonHTMLAttributes<HTMLButtonElement> &
   size?: "default" | "sm" | "lg" | "icon"
 };
 
-function Button({ children, variant = "default", disabled = false, size ="default", ...rest }: ButtonProps) {
+function Boton({ children, variant = "default", disabled = false, size ="default", ...rest }: ButtonProps) {
   return (
     <button
     className={`${styles.button} ${styles[variant]} ${styles[size]}` }
@@ -22,4 +22,4 @@ function Button({ children, variant = "default", disabled = false, size ="defaul
 );
 }
 
-export default Button;
+export default Boton;
