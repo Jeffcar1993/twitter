@@ -20,7 +20,7 @@
     flex: 1;
     gap: 2rem;
     padding: 1rem;
-    max-width: 600px;
+    max-width: 650px;
 }
 
 .titulo {
@@ -53,4 +53,5 @@
     padding: 12px;
     font-size: 16px;
     width: 100%;
+    font-size: 24px;
 }

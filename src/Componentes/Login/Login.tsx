@@ -1,13 +1,35 @@
+import { useForm, SubmitHandler } from "react-hook-form";
 import Boton from "../Boton";
 import styles from "./Login.module.css";
+import { useState } from "react";
+
+interface LoginFormInputs {
+  email: string;
+  password: string;
+}
 
 const Login = () => {
+  
+  const { register, handleSubmit, reset } = useForm<LoginFormInputs>();
+  const [errorMessage, setErrorMessage] = useState("")
+
+  const enviar: SubmitHandler<LoginFormInputs> = async (data) => {
+    try {
+        console.log(data);
+        reset();
+    } catch (error) {
+        console.error("Error al cargar producto: ", error);
+        setErrorMessage("Ocurrió un error. Debes llenar todos los campos.");
+    }
+    
+  }
+
   return (
     <div className={styles.container}>
 
         <img className={styles.logo} src="../src/assets/logo.png" alt="logo" />
 
-        <div className={styles.contenedor}>
+        <form className={styles.contenedor} onSubmit={handleSubmit(enviar)}>
 
             <h1 className={styles.titulo}>Enterate de lo que esta pasando</h1>
 
@@ -21,20 +43,24 @@ const Login = () => {
             </button>
 
             <input 
-                type="text" 
+                type="email" 
                 placeholder="email"
                 className={styles.input}
+                {...register("email", { required: "El email es obligatorio" })}
             /> 
 
             <input 
                 type="password" 
                 placeholder="password"
                 className={styles.input}
+                {...register("password", { required: "El password es obligatorio" })}
             />
 
-            <Boton size="lg">Ingresar</Boton>
+            {errorMessage && <p className="error">{errorMessage}</p>}
 
-        </div>
+            <Boton size="lg" type="submit">Ingresar</Boton>
+
+        </form>
 
     </div>
   )
