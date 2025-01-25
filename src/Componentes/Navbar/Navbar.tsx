@@ -2,6 +2,7 @@ import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom"
 import Boton from "../Boton/Boton"
 import { Bell, CircleEllipsis, Factory, House, Import, Mail, Rainbow, Search, Twitter, User, Users } from "lucide-react";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
   return (
@@ -20,6 +21,7 @@ const Navbar = () => {
             <Link className={styles.link} to="/perfil"> <User /> Perfil</Link>
             <Link className={styles.link} to="/mas"> <CircleEllipsis /> Mas opciones</Link>
             <Boton size="lg">Postear</Boton>
+            <Boton variant="outline" size="lg" onClick={() => signOut}>Salir</Boton>
         </div>
     </div>
   )

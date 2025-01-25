@@ -3,6 +3,10 @@ import Boton from "../Boton";
 import styles from "./Login.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import app from "../../Firebase/config";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+const auth = getAuth(app)
 
 interface LoginFormInputs {
   email: string;
@@ -10,18 +14,22 @@ interface LoginFormInputs {
 }
 
 const Login = () => {
-  
+
   const { register, handleSubmit, reset } = useForm<LoginFormInputs>();
   const [errorMessage, setErrorMessage] = useState("")
   const navigate = useNavigate();
 
   const enviar: SubmitHandler<LoginFormInputs> = async (data) => {
     try {
-        console.log(data);
-        reset();
+      const { email, password } = data;
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+      console.log("Usuario logueado: ", userCredential.user);
+      reset();
+      navigate("/"); // Redirige al inicio
     } catch (error) {
         console.error("Error al cargar producto: ", error);
-        setErrorMessage("Ocurrió un error. Debes llenar todos los campos.");
+        setErrorMessage("Error al iniciar sesión.");
     }
     
   }
@@ -65,6 +73,8 @@ const Login = () => {
             { errorMessage && <p className="error">{errorMessage}</p> }
 
             <Boton type="submit">Ingresar</Boton>
+
+            <p className={styles.parrafo}>Crea una cuenta y conectate</p>
 
             <Boton type="button" onClick={crearUsuario}>Crear Cuenta</Boton>
 

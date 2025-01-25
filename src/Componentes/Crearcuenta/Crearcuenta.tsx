@@ -3,6 +3,10 @@ import Boton from "../Boton";
 import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
+import app from "../../Firebase/config";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+
+const auth = getAuth(app)
 
 interface LoginFormInputs {
     nombre: string;
@@ -20,13 +24,16 @@ const Crearcuenta = () => {
 
     const crearUsuario : SubmitHandler<LoginFormInputs> = async (data) => {
         try {
-            console.log(data);
-            reset();
+            const { email, password } = data;
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+             console.log("Usuario creado: ", userCredential.user);
+                reset(); // Limpia el formulario
+                alert("Cuenta creada con éxito.");
         } catch (error) {
             console.error("Error al cargar producto: ", error);
             setErrorMessage("Ocurrió un error. Debes llenar todos los campos.");
         }
-        
       }
 
     const ingresar = () => {
@@ -77,6 +84,7 @@ const Crearcuenta = () => {
 
             <Boton type="submit">Crear Cuenta</Boton>
 
+            <p className={styles.parrafo}>¿Ya tienes una cuenta? </p>
             <Boton type="button" onClick={ingresar}>Ingresar</Boton>
 
         </form>
