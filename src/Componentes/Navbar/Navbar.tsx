@@ -1,10 +1,23 @@
 import styles from "./Navbar.module.css";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Boton from "../Boton/Boton"
 import { Bell, CircleEllipsis, Factory, House, Import, Mail, Rainbow, Search, Twitter, User, Users } from "lucide-react";
-import { signOut } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
+  const auth = getAuth();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/login"); // Redirige al login después de cerrar sesión
+    } catch (error) {
+      console.error("Error al cerrar sesión: ", error);
+    }
+  };
+
   return (
     <div className={styles.containernavbar}>
         <h1><Twitter className={styles.logo}/></h1>
@@ -21,7 +34,7 @@ const Navbar = () => {
             <Link className={styles.link} to="/perfil"> <User /> Perfil</Link>
             <Link className={styles.link} to="/mas"> <CircleEllipsis /> Mas opciones</Link>
             <Boton size="lg">Postear</Boton>
-            <Boton variant="outline" size="lg" onClick={() => signOut}>Salir</Boton>
+            <Boton variant="outline" size="lg" onClick={handleLogout}>Salir</Boton>
         </div>
     </div>
   )

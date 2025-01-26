@@ -29,7 +29,7 @@ const Login = () => {
       navigate("/"); // Redirige al inicio
     } catch (error) {
         console.error("Error al cargar producto: ", error);
-        setErrorMessage("Error al iniciar sesión.");
+        setErrorMessage("Credenciales Incorrectas");
     }
     
   }
@@ -70,7 +70,7 @@ const Login = () => {
                 {...register("password", { required: "El password es obligatorio" })}
             />
 
-            { errorMessage && <p className="error">{errorMessage}</p> }
+            { errorMessage && <p className={styles.error}>{errorMessage}</p> }
 
             <Boton type="submit">Ingresar</Boton>
 
