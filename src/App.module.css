@@ -1,18 +1,31 @@
-/* App.module.css */
+/* Estilos base */
 .container {
-  display: flex; /* Utilizamos Flexbox */
-  min-height: 100vh; /* Altura mínima de toda la ventana */
+  min-height: 100vh;
   margin: auto;
-  width: 1280;
+}
+
+/* Layout para usuarios autenticados */
+.authenticated {
+  display: flex;
+  width: 1280px;
+  justify-content: center; /* Asegura el centrado horizontal */
 }
 
 .navbar {
-  width: 250px; /* Ancho fijo para la barra de navegación */
-  height: 100%; /* Aseguramos que ocupe toda la altura */
+  width: 250px;
+  height: 100%; /* Altura completa */
 }
 
 .main {
-  flex: 1; /* Ocupa todo el espacio restante */
-  padding: 16px; /* Espaciado interno */
-  background-color: #fff; /* Fondo del contenido */
+  flex: 1; /* Ocupa el espacio restante */
+  padding: 16px;
+  background-color: #fff;
+}
+
+/* Layout para usuarios no autenticados */
+.unauthenticated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Asegura el contenido vertical */
 }
