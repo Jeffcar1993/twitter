@@ -5,6 +5,8 @@ import Inicio from "./Componentes/Inicio/Inicio";
 import Login from "./Componentes/Login/Login";
 import { AuthProvider, useAuth } from "./Componentes/Context/AuthContext";
 import Crearcuenta from "./Componentes/Crearcuenta";
+import Perfil from "./Componentes/Perfil/Perfil";
+
 
 const App = () => {
   const { isAuthenticated } = useAuth();
@@ -18,25 +20,38 @@ const App = () => {
           }`}
         >
           {isAuthenticated && (
-            <div className={styles.navbar}>
-              <Navbar />
-            </div>
+
+              <div className={styles.navbar}>
+                <Navbar />
+              </div>
+            
           )}
           <div className={styles.main}>
             <Routes>
+
               <Route
                 path="/"
                 element={
                   isAuthenticated ? <Inicio /> : <Navigate to="/login" replace />
                 }
               />
+
               <Route
                 path="/login"
                 element={
                   !isAuthenticated ? <Login /> : <Navigate to="/" replace />
                 }
               />
+
+              <Route
+                path="/perfil"
+                element={
+                  isAuthenticated ? <Perfil /> : <Navigate to="/" replace />
+                } 
+              />
+
               <Route path="/crearcuenta" element={<Crearcuenta />} />
+
             </Routes>
           </div>
         </div>
