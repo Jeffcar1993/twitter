@@ -12,6 +12,9 @@ interface UserData {
   email?: string;
   telefono?: string;
   username?: string;
+  imagen?: string;
+  descripcion?: string;
+  ubicacion?: string;
   // Agrega más propiedades según tu modelo de datos
 }
 
