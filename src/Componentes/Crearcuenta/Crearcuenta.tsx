@@ -3,8 +3,9 @@ import Boton from "../Boton";
 import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
-import app from "../../Firebase/config";
+import app, { db } from "../../Firebase/config";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 
 const auth = getAuth(app)
 
@@ -13,6 +14,7 @@ interface LoginFormInputs {
     apellido: string;
     email: string;
     telefono: string;
+    username: string;
     password: string;
   }
 
@@ -24,14 +26,23 @@ const Crearcuenta = () => {
 
     const crearUsuario : SubmitHandler<LoginFormInputs> = async (data) => {
         try {
-            const { email, password } = data;
+            const { email, password, nombre, apellido, telefono, username } = data;
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            await setDoc(doc(db, "usuarios", user.uid), {
+                nombre,
+                apellido,
+                email,
+                telefono,
+                username,
+            })
 
              console.log("Usuario creado: ", userCredential.user);
                 reset(); // Limpia el formulario
                 alert("Cuenta creada con éxito.");
         } catch (error) {
-            console.error("Error al cargar producto: ", error);
+            console.error("Error al crear usuario", error);
             setErrorMessage("Ocurrió un error. Debes llenar todos los campos.");
         }
       }
@@ -71,6 +82,12 @@ const Crearcuenta = () => {
                 className={styles.input}
                 placeholder="Digite su telefono" 
                 {...register("telefono", { required: "El telefono es obligatorio" })}
+            />
+
+            <input type="text"
+                className={styles.input}
+                placeholder="Digite su username" 
+                {...register("username", { required: "El username es obligatorio" })}
             />
 
             <input 
