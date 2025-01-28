@@ -7,7 +7,7 @@
 /* Layout para usuarios autenticados */
 .authenticated {
   display: flex;
-  width: 1280px;
+  width: 1440px;
   justify-content: center; /* Asegura el centrado horizontal */
 }
 
@@ -20,6 +20,7 @@
   flex: 1; /* Ocupa el espacio restante */
   padding: 16px;
   background-color: #fff;
+  margin-right: 2rem;
 }
 
 /* Layout para usuarios no autenticados */

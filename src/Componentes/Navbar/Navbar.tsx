@@ -4,12 +4,23 @@ import Boton from "../Boton/Boton"
 import { Bell, CircleEllipsis, Factory, House, Import, Mail, Rainbow, Search, Twitter, User, Users } from "lucide-react";
 import { getAuth, signOut } from "firebase/auth";
 import { useAuth } from "../Context/AuthContext";
+import { useState } from "react";
+import Postear from "../Postear";
 
 const Navbar = () => {
 
   const { userData } = useAuth();
   const navigate = useNavigate();
   const auth = getAuth();
+  const [postear, setPostear] = useState(false);
+
+  const handlePostearClic = () => {
+    setPostear(true);
+  }
+
+  const handleCerrarPostear = () => {
+    setPostear(false);
+  }
 
   const handleLogout = async () => {
     try {
@@ -35,7 +46,7 @@ const Navbar = () => {
             <Link className={styles.link} to="/empresa"> <Factory /> Empresa</Link>
             <Link className={styles.link} to="/perfil"> <User /> Perfil</Link>
             <Link className={styles.link} to="/mas"> <CircleEllipsis /> Mas opciones</Link>
-            <Boton size="lg">Postear</Boton>
+            <Boton size="lg" onClick={handlePostearClic}>Postear</Boton>
             <Boton variant="outline" size="lg" onClick={handleLogout}> Salir</Boton>
 
             {userData && (
@@ -48,6 +59,8 @@ const Navbar = () => {
                 </div>
             </div>
             )}
+
+            <Postear isOpen={postear} onClose={handleCerrarPostear} />
 
         </div>
     </div>
