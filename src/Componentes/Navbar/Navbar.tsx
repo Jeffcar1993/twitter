@@ -36,7 +36,7 @@ const Navbar = () => {
             <Link className={styles.link} to="/perfil"> <User /> Perfil</Link>
             <Link className={styles.link} to="/mas"> <CircleEllipsis /> Mas opciones</Link>
             <Boton size="lg">Postear</Boton>
-            <Boton variant="outline" size="lg" onClick={handleLogout}>Salir</Boton>
+            <Boton variant="outline" size="lg" onClick={handleLogout}> Salir</Boton>
 
             {userData && (
 
@@ -48,7 +48,7 @@ const Navbar = () => {
                 </div>
             </div>
             )}
-            
+
         </div>
     </div>
   )
