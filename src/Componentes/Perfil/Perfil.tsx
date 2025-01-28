@@ -22,7 +22,7 @@ const Perfil = () => {
   return (
     <div className={styles.container}>
 
-      <h2 className={styles.titulo}>Bienvenido a tu perfil</h2>
+      <h2 className={styles.otrotitulo}>Bienvenido a tu perfil</h2>
          
          <h1 className={styles.titulo}>{userData?.nombre} {userData?.apellido}</h1>
 
@@ -57,6 +57,7 @@ const Perfil = () => {
         <Link className={styles.enlace} to="/publicaciones">Publicaciones</Link>
         <Link className={styles.enlace} to="/respuestas">Respuestas</Link>
         <Link className={styles.enlace} to="/articulos">Articulos</Link>
+        <Link className={styles.enlace} to="/multimedia">Multimedia</Link>
 
       </div>
       <Editarperfil isOpen={isEditing} onClose={handleCerrarModal} />

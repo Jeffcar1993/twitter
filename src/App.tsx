@@ -6,6 +6,7 @@ import Login from "./Componentes/Login/Login";
 import { AuthProvider, useAuth } from "./Componentes/Context/AuthContext";
 import Crearcuenta from "./Componentes/Crearcuenta";
 import Perfil from "./Componentes/Perfil/Perfil";
+import Sidebar from "./Componentes/Sidebar";
 
 
 const App = () => {
@@ -54,6 +55,11 @@ const App = () => {
 
             </Routes>
           </div>
+          {isAuthenticated && (
+            <div className={styles.sidebar}>
+              <Sidebar />
+            </div>
+          )}
         </div>
       </BrowserRouter>
     </AuthProvider>

@@ -4,19 +4,23 @@ import Boton from "../Boton";
 
 const Sidebar = () => {
   return (
-    <div className={styles.sidebar}>
+    <div className={styles.container}>
 
-        <h4>
-            <Search />
+        <h4 className={styles.search}>
+        <div className={styles.searchContainer}>
+            <Search className={styles.searchIcon} />
             <input 
-                type="text" 
-                placeholder="buscar"
-                />
+            type="text" 
+            placeholder="Buscar" 
+            className={styles.searchInput} 
+            />
+        </div>
         </h4>
+
 
         <section>
             <h2>Suscribete a Premium</h2>
-            <p>Suscríbete para desbloquear nuevas funciones y, si eres elegible, recibir un pago de cuota de ingresos.</p>
+            <p className={styles.parrafo}>Suscríbete para desbloquear nuevas funciones y, si eres elegible, recibir un pago de cuota de ingresos.</p>
             <Boton size="lg">Suscribete</Boton>
         </section>
 
@@ -28,7 +32,7 @@ const Sidebar = () => {
         <section>
             <h2>Que esta pasando</h2>
 
-            <h3>Preseidente de laa república</h3>
+            <h3>Presidente de la república</h3>
             <p>politica</p>
             <br />
 
