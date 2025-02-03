@@ -1,10 +1,11 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import Boton from "../Boton";
 import styles from "./Login.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import app from "../../Firebase/config";
+import app, { db } from "../../Firebase/config";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { collection, getDocs } from "firebase/firestore";
 
 const auth = getAuth(app)
 
@@ -18,6 +19,26 @@ const Login = () => {
   const { register, handleSubmit, reset } = useForm<LoginFormInputs>();
   const [errorMessage, setErrorMessage] = useState("")
   const navigate = useNavigate();
+
+  const [logoUrl, setLogoUrl] = useState("");
+
+  useEffect(() => {
+    const fetchLogo = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "imagenes"));
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          if (data.logo) {
+            setLogoUrl(data.logo); // Suponiendo que "logo" es la URL de la imagen
+          }
+        });
+      } catch (error) {
+        console.error("Error obteniendo la imagen:", error);
+      }
+    };
+  
+    fetchLogo();
+  }, []);
 
   const enviar: SubmitHandler<LoginFormInputs> = async (data) => {
     try {
@@ -41,7 +62,12 @@ const Login = () => {
   return (
     <div className={styles.container}>
 
-        <img className={styles.logo} src="../src/assets/logo.png" alt="logo" />
+          {logoUrl ? (
+            <img className={styles.logo} src={logoUrl} alt="logo" />
+          ) : (
+            <p>Cargando logo...</p> // Mensaje mientras carga la imagen
+          )}
+
 
         <form className={styles.contenedor} onSubmit={handleSubmit(enviar)}>
 
