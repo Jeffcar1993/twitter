@@ -7,6 +7,7 @@ import { AuthProvider, useAuth } from "./Componentes/Context/AuthContext";
 import Crearcuenta from "./Componentes/Crearcuenta";
 import Perfil from "./Componentes/Perfil/Perfil";
 import Sidebar from "./Componentes/Sidebar";
+import Explorar from "./Componentes/Explorar";
 
 
 const App = () => {
@@ -49,6 +50,13 @@ const App = () => {
                 element={
                   isAuthenticated ? <Perfil /> : <Navigate to="/" replace />
                 } 
+              />
+
+              <Route
+                path="/explorar"
+                element={
+                  isAuthenticated ? <Explorar /> : <Navigate to="/" replace />
+                }
               />
 
               <Route path="/crearcuenta" element={<Crearcuenta />} />
