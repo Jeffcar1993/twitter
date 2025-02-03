@@ -10,6 +10,7 @@ import Sidebar from "./Componentes/Sidebar";
 import Explorar from "./Componentes/Explorar";
 import Notificaciones from "./Componentes/Notificaciones";
 import Mensajes from "./Componentes/Mensajes";
+import Grok from "./Componentes/Grok";
 
 
 const App = () => {
@@ -73,7 +74,14 @@ const App = () => {
                 element={
                   isAuthenticated ? <Mensajes /> : <Navigate to="/" replace />
                 }
-              />      
+              />
+
+              <Route
+                path="/grok"
+                element={
+                  isAuthenticated ? <Grok /> : <Navigate to="/" replace />
+                }
+              />        
 
               <Route path="/crearcuenta" element={<Crearcuenta />} />
 

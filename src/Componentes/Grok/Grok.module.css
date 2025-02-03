@@ -1,0 +1,42 @@
+.grok {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    width: 600px;
+    border: 1px solid lightgrey;
+    padding: 1.5rem;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.searchContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 10px 10px 10px 35px; /* Deja espacio para el ícono */
+    border: 1px solid #ccc;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+  
+  .searchIcon {
+    position: absolute;
+    left: 10px;
+    font-size: 16px;
+    color: #666;
+  }
+
+  .recomendados {
+    border: 1px solid #ddd;
+    padding: 12px;
+  }
