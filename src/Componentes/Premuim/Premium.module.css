@@ -1,0 +1,15 @@
+.premium {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    width: 600px;
+    border: 1px solid lightgrey;
+    padding: 1.5rem;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}

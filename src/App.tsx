@@ -13,6 +13,7 @@ import Mensajes from "./Componentes/Mensajes";
 import Grok from "./Componentes/Grok";
 import Guardados from "./Componentes/Guardados";
 import Comunidades from "./Componentes/Comunidades";
+import Premium from "./Componentes/Premuim";
 
 
 const App = () => {
@@ -97,7 +98,14 @@ const App = () => {
                 element={
                   isAuthenticated ? <Comunidades /> : <Navigate to="/" replace />
                 }
-              />           
+              />
+
+              <Route
+                path="/premium"
+                element={
+                  isAuthenticated ? <Premium /> : <Navigate to="/" replace />
+                }
+              />             
 
               <Route path="/crearcuenta" element={<Crearcuenta />} />
 
