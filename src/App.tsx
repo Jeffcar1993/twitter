@@ -12,6 +12,7 @@ import Notificaciones from "./Componentes/Notificaciones";
 import Mensajes from "./Componentes/Mensajes";
 import Grok from "./Componentes/Grok";
 import Guardados from "./Componentes/Guardados";
+import Comunidades from "./Componentes/Comunidades";
 
 
 const App = () => {
@@ -89,7 +90,14 @@ const App = () => {
                 element={
                   isAuthenticated ? <Guardados /> : <Navigate to="/" replace />
                 }
-              />          
+              />
+
+              <Route
+                path="/comunidades"
+                element={
+                  isAuthenticated ? <Comunidades /> : <Navigate to="/" replace />
+                }
+              />           
 
               <Route path="/crearcuenta" element={<Crearcuenta />} />
 
