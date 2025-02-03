@@ -59,3 +59,47 @@
     font-size: 10px;
     font-weight: 100;
 }
+
+.mas {
+    display: flex;
+    gap: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    gap: 1rem;
+    border: 1px solid var(--primary);
+    padding: 12px;
+    border-radius: 8px;
+    justify-content: center;
+}
+
+.menuinicio {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-decoration: none;
+    color: black;
+    align-items: center;
+}
+
+.menuinicio:hover {
+    color: var(--primary);
+}
+
+.botonsalir {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+}
+
+.botonsalir:hover {
+    color: var(--primary);
+}   

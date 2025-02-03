@@ -1,7 +1,7 @@
 import styles from "./Navbar.module.css";
 import { Link, useNavigate } from "react-router-dom"
 import Boton from "../Boton/Boton"
-import { Bell, CircleEllipsis, Factory, House, Import, Mail, Rainbow, Search, Twitter, User, Users } from "lucide-react";
+import { Bell, CircleEllipsis, Factory, House, Import, LogOut, Mail, Rainbow, Search, Twitter, User, Users } from "lucide-react";
 import { getAuth, signOut } from "firebase/auth";
 import { useAuth } from "../Context/AuthContext";
 import { useState } from "react";
@@ -13,6 +13,11 @@ const Navbar = () => {
   const navigate = useNavigate();
   const auth = getAuth();
   const [postear, setPostear] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
+  }
 
   const handlePostearClic = () => {
     setPostear(true);
@@ -45,7 +50,16 @@ const Navbar = () => {
             <Link className={styles.link} to="/premium"> <Twitter /> Premium</Link>
             <Link className={styles.link} to="/empresa"> <Factory /> Empresa</Link>
             <Link className={styles.link} to="/perfil"> <User /> Perfil</Link>
-            <Link className={styles.link} to="/mas"> <CircleEllipsis /> Mas opciones</Link>
+            
+            <button className={styles.mas} onClick={toggleMenu}> <CircleEllipsis /> Mas opciones</button>
+            {menuVisible && (
+              <div className={styles.menu}>
+                <Link className={styles.menuinicio} to="/"> <House /> Inicio</Link>
+                <Link className={styles.menuinicio} to="/perfil"> <User /> Perfil</Link>
+                <button className={styles.botonsalir} onClick={handleLogout}> <LogOut /> Salir</button>
+              </div>
+            )}
+
             <Boton size="lg" onClick={handlePostearClic}>Postear</Boton>
             <Boton variant="outline" size="lg" onClick={handleLogout}> Salir</Boton>
 
