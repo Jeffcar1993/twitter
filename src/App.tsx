@@ -14,6 +14,7 @@ import Grok from "./Componentes/Grok";
 import Guardados from "./Componentes/Guardados";
 import Comunidades from "./Componentes/Comunidades";
 import Premium from "./Componentes/Premuim";
+import Empresa from "./Componentes/Empresa";
 
 
 const App = () => {
@@ -104,6 +105,13 @@ const App = () => {
                 path="/premium"
                 element={
                   isAuthenticated ? <Premium /> : <Navigate to="/" replace />
+                }
+              />
+
+              <Route
+                path="/empresa"
+                element={
+                  isAuthenticated ? <Empresa /> : <Navigate to="/" replace />
                 }
               />             
 
