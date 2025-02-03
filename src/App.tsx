@@ -8,6 +8,7 @@ import Crearcuenta from "./Componentes/Crearcuenta";
 import Perfil from "./Componentes/Perfil/Perfil";
 import Sidebar from "./Componentes/Sidebar";
 import Explorar from "./Componentes/Explorar";
+import Notificaciones from "./Componentes/Notificaciones";
 
 
 const App = () => {
@@ -56,6 +57,13 @@ const App = () => {
                 path="/explorar"
                 element={
                   isAuthenticated ? <Explorar /> : <Navigate to="/" replace />
+                }
+              />
+
+              <Route
+                path="/notificaciones"
+                element={
+                  isAuthenticated ? <Notificaciones /> : <Navigate to="/" replace />
                 }
               />
 

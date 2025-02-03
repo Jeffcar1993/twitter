@@ -6,7 +6,7 @@ const Explorar = () => {
   return (
     <div className={styles.explorar}>
 
-        <h1>Explorar</h1>
+        <h1 className={styles.title}>Explorar</h1>
 
         <h4 className={styles.search}>
         <div className={styles.searchContainer}>
@@ -19,7 +19,7 @@ const Explorar = () => {
         </div>
         </h4>
 
-        <section>
+        <section className={styles.recomendados}>
             <h2>Recomendado para ti</h2>
 
             <h3>Presidente de la república</h3>

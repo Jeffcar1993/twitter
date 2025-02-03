@@ -19,8 +19,8 @@
     width: 100%;
     padding: 10px 10px 10px 35px; /* Deja espacio para el ícono */
     border: 1px solid #ccc;
-    border-radius: 8px;
     font-size: 14px;
+    border-radius: 8px;
   }
   
   .searchIcon {
@@ -30,8 +30,13 @@
     color: #666;
   }
 
-  section {
+  .recomendados {
     border: 1px solid #ddd;
     padding: 12px;
-    border-radius: 8px;
   }
+
+  .title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}

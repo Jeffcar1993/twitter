@@ -18,18 +18,18 @@ const Sidebar = () => {
         </h4>
 
 
-        <section>
+        <section className={styles.section}>
             <h2>Suscribete a Premium</h2>
             <p className={styles.parrafo}>Suscríbete para desbloquear nuevas funciones y, si eres elegible, recibir un pago de cuota de ingresos.</p>
             <Boton size="lg">Suscribete</Boton>
         </section>
 
-        <section>
+        <section className={styles.section}>
             <h1>En directo Twitter</h1>
             <p>Recomendado en video ahora</p>
         </section>
 
-        <section>
+        <section className={styles.section}>
             <h2>Que esta pasando</h2>
 
             <h3>Presidente de la república</h3>
@@ -49,7 +49,7 @@ const Sidebar = () => {
             <br />
         </section>
 
-        <section>
+        <section className={styles.section}>
             <h2>A quién seguir</h2>
 
             <h3>BBC News</h3>
